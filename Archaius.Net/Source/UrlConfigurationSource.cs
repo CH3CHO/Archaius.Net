@@ -13,7 +13,7 @@ namespace Archaius.Source
         /// <summary>
         /// AppConfig property name to define a set of URLs to be used by the default constructor. 
         /// </summary>
-        public static readonly string ConfigUrlPropertyName = "archaius.configurationSource.additionalUrls";
+        public static readonly string ConfigUrlPropertyName = "Archaius.ConfigUrls";
 
         private static readonly ILog m_Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
