@@ -51,6 +51,7 @@
     <Compile Include="EnvironmentConfigurationTest.cs" />
     <Compile Include="PollingSourceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UrlConfigurationSourceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Archaius.Net\Archaius.Net.csproj">
