@@ -15,6 +15,8 @@ namespace Archaius.Source
         /// </summary>
         public static readonly string ConfigUrlPropertyName = "Archaius.ConfigUrls";
 
+        public static readonly char UrlSeparator = ';';
+
         private static readonly ILog m_Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         private readonly string[] m_ConfigUrls;
@@ -64,7 +66,7 @@ namespace Archaius.Source
         private static string[] GetDefaultFileSources()
         {
             var name = System.Configuration.ConfigurationManager.AppSettings[ConfigUrlPropertyName];
-            return !string.IsNullOrEmpty(name) ? name.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries) : new string[0];
+            return !string.IsNullOrEmpty(name) ? name.Split(new[] {UrlSeparator}, StringSplitOptions.RemoveEmptyEntries) : new string[0];
         }
 
         /// <summary>
