@@ -238,7 +238,7 @@ namespace Archaius.Dynamic
         /// <param name="defaultValue">default value if the property is not defined in underlying configuration</param>
         /// <param name="propertyChangeCallback">an action to be called when the property is changed</param>
         /// <returns></returns>
-        public DynamicStringProperty GetStringProperty(string propName, string defaultValue, EventHandler propertyChangeCallback = null)
+        public DynamicStringProperty GetStringProperty(string propName, string defaultValue = null, EventHandler propertyChangeCallback = null)
         {
             CheckAndWarn(propName);
             var property = new DynamicStringProperty(propName, defaultValue);
@@ -253,7 +253,7 @@ namespace Archaius.Dynamic
         /// <param name="defaultValue">default value if the property is not defined in underlying configuration</param>
         /// <param name="propertyChangeCallback">an action to be called when the property is changed</param>
         /// <returns></returns>
-        public DynamicIntProperty GetIntProperty(string propName, int defaultValue, EventHandler propertyChangeCallback = null)
+        public DynamicIntProperty GetIntProperty(string propName, int defaultValue = 0, EventHandler propertyChangeCallback = null)
         {
             CheckAndWarn(propName);
             var property = new DynamicIntProperty(propName, defaultValue);
@@ -268,7 +268,7 @@ namespace Archaius.Dynamic
         /// <param name="defaultValue">default value if the property is not defined in underlying configuration</param>
         /// <param name="propertyChangeCallback">an action to be called when the property is changed</param>
         /// <returns></returns>
-        public DynamicLongProperty GetLongProperty(string propName, long defaultValue, EventHandler propertyChangeCallback = null)
+        public DynamicLongProperty GetLongProperty(string propName, long defaultValue = 0L, EventHandler propertyChangeCallback = null)
         {
             CheckAndWarn(propName);
             var property = new DynamicLongProperty(propName, defaultValue);
@@ -283,7 +283,7 @@ namespace Archaius.Dynamic
         /// <param name="defaultValue">default value if the property is not defined in underlying configuration</param>
         /// <param name="propertyChangeCallback">an action to be called when the property is changed</param>
         /// <returns></returns>
-        public DynamicBooleanProperty GetBooleanProperty(string propName, bool defaultValue, EventHandler propertyChangeCallback)
+        public DynamicBooleanProperty GetBooleanProperty(string propName, bool defaultValue = false, EventHandler propertyChangeCallback = null)
         {
             CheckAndWarn(propName);
             var property = new DynamicBooleanProperty(propName, defaultValue);
@@ -298,7 +298,7 @@ namespace Archaius.Dynamic
         /// <param name="defaultValue">default value if the property is not defined in underlying configuration</param>
         /// <param name="propertyChangeCallback">an action to be called when the property is changed</param>
         /// <returns></returns>
-        public DynamicFloatProperty GetFloatProperty(string propName, float defaultValue, EventHandler propertyChangeCallback = null)
+        public DynamicFloatProperty GetFloatProperty(string propName, float defaultValue = 0.0f, EventHandler propertyChangeCallback = null)
         {
             CheckAndWarn(propName);
             var property = new DynamicFloatProperty(propName, defaultValue);
@@ -313,7 +313,7 @@ namespace Archaius.Dynamic
         /// <param name="defaultValue">default value if the property is not defined in underlying configuration</param>
         /// <param name="propertyChangeCallback">an action to be called when the property is changed</param>
         /// <returns></returns>
-        public DynamicDoubleProperty GetDoubleProperty(string propName, double defaultValue, EventHandler propertyChangeCallback = null)
+        public DynamicDoubleProperty GetDoubleProperty(string propName, double defaultValue = 0.0, EventHandler propertyChangeCallback = null)
         {
             CheckAndWarn(propName);
             var property = new DynamicDoubleProperty(propName, defaultValue);
