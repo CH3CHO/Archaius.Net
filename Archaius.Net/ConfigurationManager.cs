@@ -12,6 +12,7 @@ namespace Archaius
     public class ConfigurationManager
     {
         public static readonly string UrlConfigName = "Archaius.DynamicPropertyFactory.UrlConfig";
+        public static readonly string AppSettingsConfigName = "Archaius.DynamicPropertyFactory.AppSettingsConfig";
         public static readonly string EnvConfigName = "Archaius.DynamicPropertyFactory.EnvConfig";
         public static readonly string ApplicationProperties = "ApplicationProperties";
 
@@ -87,6 +88,8 @@ namespace Archaius
             {
                 m_Log.Warn("Failed to create default dynamic configuration", e);
             }
+            var appSettingsConfig = new AppSettingsConfiguration();
+            config.AddConfiguration(appSettingsConfig, AppSettingsConfigName);
             var envConfig = new EnvironmentConfiguration();
             config.AddConfiguration(envConfig, EnvConfigName);
             var appOverrideConfig = new ConcurrentCompositeConfiguration();
