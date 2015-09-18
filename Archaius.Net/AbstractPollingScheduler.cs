@@ -77,7 +77,6 @@ namespace Archaius
         /// </summary>
         /// <param name="source">source of the configuration</param>
         /// <param name="config">Configuration to apply the polling result</param>
-        /// <exception cref="Exception">if any error occurs in polling the configuration source</exception>
         protected void InitialLoad(IPolledConfigurationSource source, IConfiguration config)
         {
             PollResult result;
@@ -89,7 +88,9 @@ namespace Archaius
             }
             catch (Exception e)
             {
-                throw new Exception("Unable to load Properties source from " + source, e);
+                RaisePollingCompletedEvent(new PollingEventArgs(PollingEventArgs.EventType.Failure, null, e));
+                m_Log.Error("Unable to load properties source from " + source, e);
+                return;
             }
             try
             {
@@ -97,7 +98,7 @@ namespace Archaius
             }
             catch (Exception e)
             {
-                throw new Exception("Unable to load Properties", e);
+                m_Log.Error("Unable to applying properties.", e);
             }
         }
 
