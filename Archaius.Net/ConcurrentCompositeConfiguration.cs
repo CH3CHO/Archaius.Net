@@ -463,6 +463,10 @@ namespace Archaius
         public override string[] GetStringArray(string key)
         {
             var list = GetList(key);
+            if (list == null)
+            {
+                return new string[0];
+            }
             var tokens = list.Cast<object>().Select(t => t.ToString()).ToArray();
             return tokens;
         }
