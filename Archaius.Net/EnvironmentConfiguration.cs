@@ -34,9 +34,24 @@ namespace Archaius
 
         private static IDictionary<string, object> GetEnvironmentVariables()
         {
-            return Environment.GetEnvironmentVariables()
-                    .Cast<DictionaryEntry>()
-                    .ToDictionary(variable => (string)variable.Key, variable => variable.Value);
+            var variables = Environment.GetEnvironmentVariables(EnvironmentVariableTarget.Process)
+                                       .Cast<DictionaryEntry>()
+                                       .ToDictionary(variable => (string)variable.Key, variable => variable.Value);
+            foreach (DictionaryEntry userVariable in Environment.GetEnvironmentVariables(EnvironmentVariableTarget.User))
+            {
+                if (!variables.ContainsKey((string)userVariable.Key))
+                {
+                    variables.Add((string)userVariable.Key, userVariable.Value);
+                }
+            }
+            foreach (DictionaryEntry machineVariable in Environment.GetEnvironmentVariables(EnvironmentVariableTarget.Machine))
+            {
+                if (!variables.ContainsKey((string)machineVariable.Key))
+                {
+                    variables.Add((string)machineVariable.Key, machineVariable.Value);
+                }
+            }
+            return variables;
         }
     }
 }
